@@ -1,0 +1,7 @@
+package com.prashant.springcloud.controller;
+
+import java.io.Serializable;
+
+public class UserController implements Serializable{
+
+}

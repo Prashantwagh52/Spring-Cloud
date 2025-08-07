@@ -1,0 +1,14 @@
+package com.prashant.springcloud.controller;
+
+import java.io.Serializable;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/users")
+public class UserController implements Serializable {
+
+	private static final long serialVersionUID = 6862358626887845112L;
+
+}

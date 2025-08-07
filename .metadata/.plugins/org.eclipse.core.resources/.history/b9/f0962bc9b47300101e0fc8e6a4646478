@@ -1,0 +1,28 @@
+package com.prashant.springcloud.ServiceImpl;
+
+import java.util.List;
+
+import com.prashant.springcloud.Service.UserServies;
+import com.prashant.springcloud.entity.User;
+
+public class UserServicesImpl implements UserServies {
+
+	@Override
+	public User saveUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getUser(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

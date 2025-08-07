@@ -1,0 +1,5 @@
+package com.prashant.springcloud.repository;
+
+public interface UserRepository {
+
+}

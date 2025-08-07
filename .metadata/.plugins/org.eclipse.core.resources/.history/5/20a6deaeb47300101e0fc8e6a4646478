@@ -1,0 +1,15 @@
+package com.prashant.springcloud.Service;
+
+import java.util.List;
+
+import com.prashant.springcloud.entity.User;
+
+public interface UserServies {
+
+	User saveUser(User user);
+
+	List<User> getAllUser();
+
+	User getUser(String userId);
+
+}

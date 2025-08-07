@@ -1,0 +1,5 @@
+package com.prashant.springcloud.Service;
+
+public interface UserServies {
+
+}

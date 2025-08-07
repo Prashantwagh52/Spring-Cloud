@@ -1,0 +1,5 @@
+package com.prashant.springcloud.exceptions;
+
+public class ResourceNotFoundException {
+
+}
