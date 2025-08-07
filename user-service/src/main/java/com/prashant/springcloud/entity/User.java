@@ -40,7 +40,6 @@ public class User implements Serializable {
 
 	@Column(name = "ABOUT")
 	private String about;
-	// other user properties that you want
 
 	@Transient
 	private List<Rating> ratings = new ArrayList<>();

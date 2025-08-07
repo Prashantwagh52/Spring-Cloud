@@ -12,4 +12,5 @@ public interface UserServies {
 
 	public User getUser(String userId);
 
+	
 }

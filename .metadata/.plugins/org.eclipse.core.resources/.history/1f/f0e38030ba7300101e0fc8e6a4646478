@@ -1,0 +1,9 @@
+package com.prashant.springcloud.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.prashant.springcloud.entity.User;
+
+public interface UserRepository extends JpaRepository<User, String> {
+
+}
