@@ -1,5 +1,0 @@
-package com.prashant.springcloud.response;
-
-public class ApiResponse {
-
-}

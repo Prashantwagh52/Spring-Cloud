@@ -1,9 +1,0 @@
-package com.prashant.springcloud.controller;
-
-import java.io.Serializable;
-
-public class UserController implements Serializable {
-
-	private static final long serialVersionUID = 6862358626887845112L;
-
-}

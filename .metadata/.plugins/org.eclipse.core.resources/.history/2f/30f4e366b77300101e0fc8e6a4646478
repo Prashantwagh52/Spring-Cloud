@@ -1,5 +1,0 @@
-package com.prashant.springcloud.controller;
-
-public class UserController {
-
-}
