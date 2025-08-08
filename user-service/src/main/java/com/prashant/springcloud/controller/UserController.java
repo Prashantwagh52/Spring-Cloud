@@ -29,7 +29,6 @@ public class UserController implements Serializable {
 	@Autowired
 	private UserServies userService;
 
-	
 	@PostMapping
 	public ResponseEntity<User> createUser(@RequestBody User user) {
 		User user1 = userService.saveUser(user);

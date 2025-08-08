@@ -6,5 +6,4 @@ import com.prashant.springcloud.entity.User;
 
 public interface UserRepository extends JpaRepository<User, String> {
 
-	
 }
