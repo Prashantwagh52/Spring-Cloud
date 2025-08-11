@@ -1,4 +1,4 @@
-package com.prashant.rating;
+package com.prashant.hotel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class RatingServiceApplication {
+public class HotelServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RatingServiceApplication.class, args);
+		SpringApplication.run(HotelServiceApplication.class, args);
 	}
 
 }

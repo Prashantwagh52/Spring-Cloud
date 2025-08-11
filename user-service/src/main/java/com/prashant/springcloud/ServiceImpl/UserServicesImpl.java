@@ -1,16 +1,18 @@
-package com.prashant.springcloud.ServiceImpl;
+package com.prashant.springcloud.serviceImpl;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.prashant.springcloud.Service.UserServies;
 import com.prashant.springcloud.entity.User;
 import com.prashant.springcloud.exceptions.ResourceNotFoundException;
 import com.prashant.springcloud.repository.UserRepository;
+import com.prashant.springcloud.service.UserService;
 
-public class UserServicesImpl implements UserServies {
+@Service("userService")
+public class UserServicesImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.prashant.springcloud.Service.UserServies;
 import com.prashant.springcloud.entity.User;
+import com.prashant.springcloud.service.UserService;
 
 @RestController
 @RequestMapping("/users")
@@ -27,7 +27,7 @@ public class UserController implements Serializable {
 	private Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
-	private UserServies userService;
+	private UserService userService;
 
 	@PostMapping
 	public ResponseEntity<User> createUser(@RequestBody User user) {
