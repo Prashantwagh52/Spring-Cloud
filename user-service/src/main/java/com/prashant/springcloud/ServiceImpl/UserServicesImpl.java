@@ -1,11 +1,17 @@
 package com.prashant.springcloud.serviceImpl;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.prashant.springcloud.entity.Hotel;
+import com.prashant.springcloud.entity.Rating;
 import com.prashant.springcloud.entity.User;
 import com.prashant.springcloud.exceptions.ResourceNotFoundException;
 import com.prashant.springcloud.repository.UserRepository;
@@ -16,6 +22,9 @@ public class UserServicesImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@Override
 	public User saveUser(User user) {
@@ -32,6 +41,25 @@ public class UserServicesImpl implements UserService {
 	public User getUser(String userId) {
 		User user = userRepository.findById(userId).orElseThrow(
 				() -> new ResourceNotFoundException("User with given id is not found on server !! : " + userId));
+
+		Rating[] ratingsOfUser = restTemplate.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(),
+				Rating[].class);
+
+		List<Rating> ratings = Arrays.stream(ratingsOfUser).toList();
+
+		List<Rating> ratingList = ratings.stream().map(rating -> {
+			ResponseEntity<Hotel> forEntity = restTemplate
+					.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(), Hotel.class);
+
+			Hotel hotel = forEntity.getBody();
+
+			rating.setHotel(hotel);
+
+			return rating;
+		}).collect(Collectors.toList());
+
+		user.setRatings(ratingList);
+
 		return user;
 	}
 

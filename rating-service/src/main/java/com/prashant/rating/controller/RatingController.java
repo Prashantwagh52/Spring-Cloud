@@ -17,7 +17,7 @@ import com.prashant.rating.entity.Rating;
 import com.prashant.rating.service.RatingService;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/ratings")
 public class RatingController implements Serializable {
 
 	private static final long serialVersionUID = 3370075861501992747L;
