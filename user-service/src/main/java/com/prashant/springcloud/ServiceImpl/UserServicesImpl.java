@@ -14,6 +14,7 @@ import com.prashant.springcloud.entity.Hotel;
 import com.prashant.springcloud.entity.Rating;
 import com.prashant.springcloud.entity.User;
 import com.prashant.springcloud.exceptions.ResourceNotFoundException;
+import com.prashant.springcloud.external.service.HotelService;
 import com.prashant.springcloud.repository.UserRepository;
 import com.prashant.springcloud.service.UserService;
 
@@ -25,6 +26,9 @@ public class UserServicesImpl implements UserService {
 
 	@Autowired
 	private RestTemplate restTemplate;
+
+	@Autowired
+	private HotelService hotelService;
 
 	@Override
 	public User saveUser(User user) {
@@ -48,10 +52,13 @@ public class UserServicesImpl implements UserService {
 		List<Rating> ratings = Arrays.stream(ratingsOfUser).toList();
 
 		List<Rating> ratingList = ratings.stream().map(rating -> {
-			ResponseEntity<Hotel> forEntity = restTemplate
-					.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(), Hotel.class);
 
-			Hotel hotel = forEntity.getBody();
+//			ResponseEntity<Hotel> forEntity = restTemplate
+//					.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(), Hotel.class);
+
+//			Hotel hotel = forEntity.getBody();
+
+			Hotel hotel = hotelService.getHotel(rating.getHotelId());
 
 			rating.setHotel(hotel);
 
